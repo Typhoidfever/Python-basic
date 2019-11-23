@@ -1,0 +1,62 @@
+# Исключения это особый тип данных репрезентующий различные ошибки в выполнении кода
+# Для "проброса" исключений используется конструкция try-except
+
+firstNumber = int(input("Enter the first number: "))
+secondNumber = int(input("Enter the second number: "))
+
+try:
+    print(firstNumber / secondNumber)
+except:
+    print("This operation can not be done")
+print("The END")
+
+# В блоке try-except можно пробрасывать конкретные исключения из стандартной библиотеки
+try:
+    x = int(input("Enter the number: "))
+    y = 1 / x
+    print(y)
+except ZeroDivisionError:
+    print("You cannot divide by zero")
+except ValueError:
+    print("You must enter an integer value")
+except:
+    print("Something went wrong")
+
+
+# Исключения можно пробрасывать внутри созданной функции
+
+def badFunction(n):
+    try:
+        return 1 / n
+    except:
+        print("Arethmetic Problem!")
+    return None
+
+
+badFunction(0)
+
+print("The END!")
+
+# Для вызова исключений можно так же использовать инструкцию raise
+
+def badfun(n):
+    raise ZeroDivisionError
+
+try:
+    badfun(0)
+except ArithmeticError:
+    print("An Error!")
+
+
+# Инструкция raise так же мождет быть использована как часть блока except
+
+def badFun(n):
+    try:
+        return n / 0
+    except:
+        print("I did it again!")
+        raise
+try:
+    badFun(0)
+except ArithmeticError:
+    print("I see")
