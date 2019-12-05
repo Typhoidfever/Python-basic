@@ -48,7 +48,7 @@ except ArithmeticError:
     print("An Error!")
 
 
-# Инструкция raise так же мождет быть использована как часть блока except
+# Инструкция raise так же может быть использована как часть блока except
 
 def badFun(n):
     try:
